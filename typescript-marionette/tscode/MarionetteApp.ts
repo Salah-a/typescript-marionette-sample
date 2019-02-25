@@ -1,4 +1,5 @@
-﻿/// <reference path="../Scripts/typings/jquery/jquery.d.ts"/>
+﻿//Author: Salah Abuzaid
+/// <reference path="../Scripts/typings/jquery/jquery.d.ts"/>
 /// <reference path="../Scripts/typings/underscore/underscore.d.ts"/>
 /// <reference path="../Scripts/typings/backbone/backbone.d.ts"/>
 /// <reference path="../Scripts/typings/marionette/marionette.d.ts"/>
