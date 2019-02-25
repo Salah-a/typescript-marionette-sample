@@ -30,66 +30,74 @@
     <script language="javascript" type="text/javascript" src="../../tscode/models/UserResultModels.js"></script>
     <script language="javascript" type="text/javascript" src="../../tscode/views/UserResultViews.js"></script>
 </head>
-    <body>
-        
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="app-navbar-text">Salah Abuzaid TypeScript Marionette Demo</div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div id="navbarRegion" class="app-navbar-text">
-                            <p>navbarRegion</p>
-                        </div>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="app-navbar-text">Salah Abuzaid TypeScript Marionette Demo</div>
+                </div>
+                <div class="col-lg-6">
+                    <div id="navbarRegion" class="app-navbar-text">
+                        <p>navbarRegion</p>
                     </div>
                 </div>
             </div>
-        </div>        
-        
-        <div class="container"> @* wrap the row with a container *@ 
+        </div>
+    </div>
+
+    <div class="container">
+        @* wrap the row with a container *@
         <div class="row" style="margin-top=20px;">
             <h1>Tournament Scoreboard</h1>
         </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    @*<h1>Hello Home Controller</h1> // old code *@
-                    <div id="testUserResultRegion"></div> @*  new region  *@
-                </div>
+        <div class="row">
+            <div class="col-lg-12">
+                @*<h1>Hello Home Controller</h1> // old code *@
+                <div id="testUserResultRegion"></div> @*  new region  *@
             </div>
         </div>
-        
-        <script type="text/template" id="navBarItemViewTemplate">
-            <%= Name %>
-        </script>
-        
-        <script type="text/template" id="navBarCollectionViewTemplate">
-        </script>
-        
-        <script type="text/template" id="testUserResultsCollectionViewTemplate">
-            <thead>
-                <tr>
-                    <th>UserName (alias)</th>
-                    <th>wins</th>
-                    <th>losses</th>
-                    <th>
-                        <button class="btn-success">Add player</button>
-                    </th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </script>
+    </div>
 
-        <script type="text/template" id="testUserResultsItemViewTemplate">
-            <td><%=realName%> (<%= alias %>)</td>
-            <td><%=wins %></td>
-            <td><%=losses%></td>
-            <td><button class="btn-info">Edit</button></td>
-        </script>
+    <script type="text/template" id="navBarItemViewTemplate">
+        <%= Name %>
+    </script>
 
-        <script type="text/javascript">
-            var marionetteApp = new MarionetteApp();
-            marionetteApp.start();
-        </script>
-    </body>
+    <script type="text/template" id="navBarCollectionViewTemplate">
+    </script>
+
+    <script type="text/template" id="testUserResultsCollectionViewTemplate">
+        <thead>
+            <tr>
+                <th>UserName (alias)</th>
+                <th>wins</th>
+                <th>losses</th>
+                <th>
+                    <button class="btn-success">Add player</button>
+                </th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </script>
+
+    <script type="text/template" id="testUserResultsItemViewTemplate">
+        <td><%=realName%> (<%= alias %>)</td>
+        <td><%=wins %></td>
+        <td><%=losses%></td>
+        <td><button class="btnEdit btn-info">Edit</button></td>
+    </script>
+
+    <script type="text/template" id="editTestUserResultsItemViewTemplate">
+        <td><input name="txtRealName" value="<%=realName%>"/></td>
+        <td><input name="txtWins" value="<%=wins%>"/></td>
+        <td><input name="txtLosses" value="<%=losses%>" /></td>
+        <td><button class="btnSave btn-success">Save</button></td>
+    </script>
+
+    <script type="text/javascript">
+        var marionetteApp = new MarionetteApp();
+        marionetteApp.start();
+    </script>
+</body>
 </html>

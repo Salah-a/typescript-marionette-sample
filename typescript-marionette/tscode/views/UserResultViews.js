@@ -20,9 +20,19 @@ var TestUserResultItemView = (function (_super) {
             options = {};
         options.template = "#testUserResultsItemViewTemplate";
         options.tagName = "tr";
+        options.events = {
+            "click .btnEdit": "editButtonClicked",
+            "click .btnSave": "saveButtonClicked",
+        };
         _this = _super.call(this, options) || this;
         return _this;
     }
+    TestUserResultItemView.prototype.editButtonClicked = function () {
+        this.trigger("btnEdit:clicked", this.model);
+    };
+    TestUserResultItemView.prototype.saveButtonClicked = function () {
+        this.trigger("btnSave:clicked", this.model);
+    };
     return TestUserResultItemView;
 }(Marionette.ItemView));
 var TestUserResultsView = (function (_super) {

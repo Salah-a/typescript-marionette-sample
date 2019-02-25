@@ -27,10 +27,24 @@ class MarionetteApp extends Marionette.Application {
         var testUserResultCollection = new TestUserCollection();
         testUserResultCollection.fetch();
         var testUserResultCollectionView = new TestUserResultsView({ collection: testUserResultCollection });
+        testUserResultCollectionView.on("itemview:btnEdit:clicked", this.editButtonClicked);
+        testUserResultCollectionView.on("itemview:btnSave:clicked", this.saveButtonClicked);
+
         this.testUserResultRegion.show(testUserResultCollectionView);
+        
         
     }
     navBarButtonClicked(itemView: Marionette.ItemView, buttonId: number) {
         alert('Marionette.App handled NavBarItemView clicked with id :' + buttonId);
+    }
+    editButtonClicked(itemView: Marionette.ItemView) {
+        console.log('break here');
+        itemView.options.template = "#editTestUserResultsItemViewTemplate";
+        itemView.render();
+    }
+    saveButtonClicked(itemView: Marionette.ItemView) {
+        console.log('break here');
+        itemView.options.template = "#testUserResultsItemViewTemplate";
+        itemView.render();
     }
 }

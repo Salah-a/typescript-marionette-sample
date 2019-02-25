@@ -33,10 +33,22 @@ var MarionetteApp = (function (_super) {
         var testUserResultCollection = new TestUserCollection();
         testUserResultCollection.fetch();
         var testUserResultCollectionView = new TestUserResultsView({ collection: testUserResultCollection });
+        testUserResultCollectionView.on("itemview:btnEdit:clicked", this.editButtonClicked);
+        testUserResultCollectionView.on("itemview:btnSave:clicked", this.saveButtonClicked);
         this.testUserResultRegion.show(testUserResultCollectionView);
     };
     MarionetteApp.prototype.navBarButtonClicked = function (itemView, buttonId) {
         alert('Marionette.App handled NavBarItemView clicked with id :' + buttonId);
+    };
+    MarionetteApp.prototype.editButtonClicked = function (itemView) {
+        console.log('break here');
+        itemView.options.template = "#editTestUserResultsItemViewTemplate";
+        itemView.render();
+    };
+    MarionetteApp.prototype.saveButtonClicked = function (itemView) {
+        console.log('break here');
+        itemView.options.template = "#testUserResultsItemViewTemplate";
+        itemView.render();
     };
     return MarionetteApp;
 }(Marionette.Application));

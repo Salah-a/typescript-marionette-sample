@@ -9,7 +9,18 @@ class TestUserResultItemView extends Marionette.ItemView {
             options = {};
         options.template = "#testUserResultsItemViewTemplate";
         options.tagName = "tr";
+        options.events = {
+            "click .btnEdit": "editButtonClicked",
+            "click .btnSave": "saveButtonClicked",
+        }
         super(options);
+
+    }
+    editButtonClicked() {
+        this.trigger("btnEdit:clicked", this.model);
+    }
+    saveButtonClicked() {
+        this.trigger("btnSave:clicked", this.model);
     }
 }
 
