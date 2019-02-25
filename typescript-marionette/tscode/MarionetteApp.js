@@ -18,7 +18,6 @@ var MarionetteApp = (function (_super) {
         var _this = _super.call(this) || this;
         _this.on("initialize:after", _this.initializeAfter);
         _this.addRegions({ navbarRegion: "#navbarRegion" });
-        _this.addRegions({ userResultRegion: "#userResultRegion" }); // new region
         _this.addRegions({ testUserResultRegion: "#testUserResultRegion" }); // new region
         return _this;
     }
@@ -31,14 +30,8 @@ var MarionetteApp = (function (_super) {
         var navBarView = new NavBarCollectionView({ collection: navBarButtonCollection });
         navBarView.on("itemview:navbar:clicked", this.navBarButtonClicked);
         this.navbarRegion.show(navBarView);
-        var userResultCollection = new UserResultCollection();
-        userResultCollection.fetch();
-        //var userResultView = new UserResultsView({ collection: testUserResultCollection }); // pass in the collection
-        var userResultView = new UserResultsView({ collection: userResultCollection }); // pass in the collection
-        this.userResultRegion.show(userResultView);
         var testUserResultCollection = new TestUserCollection();
         testUserResultCollection.fetch();
-        console.log('break here');
         var testUserResultCollectionView = new TestUserResultsView({ collection: testUserResultCollection });
         this.testUserResultRegion.show(testUserResultCollectionView);
     };

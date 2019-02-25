@@ -95,7 +95,6 @@ class TestUserCollection extends Backbone.Collection {
         super(options);
         this.model = TestUserModel;
         this.url = "https://csunix.mohawkcollege.ca/~000348604/android_connect/get_all_gameuserresults.php";
-
         this.parse = (data) => {
             console.log('break here');
             return data.gameuserresults;

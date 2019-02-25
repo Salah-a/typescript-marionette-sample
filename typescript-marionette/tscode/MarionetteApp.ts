@@ -5,13 +5,11 @@
 
 class MarionetteApp extends Marionette.Application {
     navbarRegion: Marionette.Region;
-    userResultRegion: Marionette.Region; // new region
     testUserResultRegion: Marionette.Region; 
     constructor() {
         super();
         this.on("initialize:after", this.initializeAfter);
         this.addRegions({ navbarRegion: "#navbarRegion" });
-        this.addRegions({ userResultRegion: "#userResultRegion" }); // new region
         this.addRegions({ testUserResultRegion: "#testUserResultRegion" }); // new region
     }
     initializeAfter() {
@@ -25,16 +23,9 @@ class MarionetteApp extends Marionette.Application {
         navBarView.on("itemview:navbar:clicked", this.navBarButtonClicked);
         this.navbarRegion.show(navBarView);
 
-        var userResultCollection = new UserResultCollection();
-        userResultCollection.fetch();
-
-        //var userResultView = new UserResultsView({ collection: testUserResultCollection }); // pass in the collection
-        var userResultView = new UserResultsView({ collection: userResultCollection }); // pass in the collection
-        this.userResultRegion.show(userResultView);
 
         var testUserResultCollection = new TestUserCollection();
         testUserResultCollection.fetch();
-        console.log('break here');
         var testUserResultCollectionView = new TestUserResultsView({ collection: testUserResultCollection });
         this.testUserResultRegion.show(testUserResultCollectionView);
         

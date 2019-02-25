@@ -99,12 +99,6 @@ var TestUserModel = (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Object.defineProperty(TestUserModel.prototype, "alias", {
-        //constructor(options?: any) {
-        //    super(options);
-        //    this.parse = (data) => {
-        //        console.log('break here');
-        //    }
-        //}
         get: function () { return this.get('alias'); },
         set: function (value) { this.set('alias', value); },
         enumerable: true,
