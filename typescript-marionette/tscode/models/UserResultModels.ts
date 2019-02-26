@@ -4,14 +4,14 @@
 /// <reference path="../../Scripts/typings/backbone/backbone.d.ts"/>
 /// <reference path="../../Scripts/typings/marionette/marionette.d.ts"/> 
 
-interface ITestUserModel {
+interface IUserModel {
     realName: string;
     alias: string;
     wins?: number;
     losses?: number;
 }
 
-class TestUserModel extends Backbone.Model implements ITestUserModel {
+class UserModel extends Backbone.Model implements IUserModel {
     get alias(): string { return this.get('alias'); }
     set alias(value: string) { this.set('alias', value); }
 
@@ -26,10 +26,10 @@ class TestUserModel extends Backbone.Model implements ITestUserModel {
 
    
 }
-class TestUserCollection extends Backbone.Collection {
+class UserCollection extends Backbone.Collection {
     constructor(options?: any) {
         super(options);
-        this.model = TestUserModel;
+        this.model = UserModel;
         this.url = "https://csunix.mohawkcollege.ca/~000348604/android_connect/get_all_gameuserresults.php";
         this.parse = (data) => {
             console.log('break here');

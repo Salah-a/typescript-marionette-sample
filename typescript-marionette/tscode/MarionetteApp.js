@@ -1,4 +1,9 @@
 //Author: Salah Abuzaid
+/**
+ *TODO: Add save functionality & Validation
+ *TODO: Setup controller
+ *TODO: Add edit & add functionality
+ */
 /// <reference path="../Scripts/typings/jquery/jquery.d.ts"/>
 /// <reference path="../Scripts/typings/underscore/underscore.d.ts"/>
 /// <reference path="../Scripts/typings/backbone/backbone.d.ts"/>
@@ -19,7 +24,7 @@ var MarionetteApp = (function (_super) {
         var _this = _super.call(this) || this;
         _this.on("initialize:after", _this.initializeAfter);
         _this.addRegions({ navbarRegion: "#navbarRegion" });
-        _this.addRegions({ testUserResultRegion: "#testUserResultRegion" }); // new region
+        _this.addRegions({ userResultRegion: "#userResultRegion" }); // new region
         return _this;
     }
     MarionetteApp.prototype.initializeAfter = function () {
@@ -31,24 +36,24 @@ var MarionetteApp = (function (_super) {
         var navBarView = new NavBarCollectionView({ collection: navBarButtonCollection });
         navBarView.on("itemview:navbar:clicked", this.navBarButtonClicked);
         this.navbarRegion.show(navBarView);
-        var testUserResultCollection = new TestUserCollection();
-        testUserResultCollection.fetch();
-        var testUserResultCollectionView = new TestUserResultsView({ collection: testUserResultCollection });
-        testUserResultCollectionView.on("itemview:btnEdit:clicked", this.editButtonClicked);
-        testUserResultCollectionView.on("itemview:btnSave:clicked", this.saveButtonClicked);
-        this.testUserResultRegion.show(testUserResultCollectionView);
+        var userResultCollection = new UserCollection();
+        userResultCollection.fetch();
+        var userResultCollectionView = new UserResultsView({ collection: userResultCollection });
+        userResultCollectionView.on("itemview:btnEdit:clicked", this.editButtonClicked);
+        userResultCollectionView.on("itemview:btnSave:clicked", this.saveButtonClicked);
+        this.userResultRegion.show(userResultCollectionView);
     };
     MarionetteApp.prototype.navBarButtonClicked = function (itemView, buttonId) {
         alert('Marionette.App handled NavBarItemView clicked with id :' + buttonId);
     };
     MarionetteApp.prototype.editButtonClicked = function (itemView) {
         console.log('break here');
-        itemView.options.template = "#editTestUserResultsItemViewTemplate";
+        itemView.options.template = "#editUserResultsItemViewTemplate";
         itemView.render();
     };
     MarionetteApp.prototype.saveButtonClicked = function (itemView) {
         console.log('break here');
-        itemView.options.template = "#testUserResultsItemViewTemplate";
+        itemView.options.template = "#userResultsItemViewTemplate";
         itemView.render();
     };
     return MarionetteApp;

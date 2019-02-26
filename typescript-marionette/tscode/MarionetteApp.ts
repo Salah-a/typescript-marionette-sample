@@ -1,4 +1,9 @@
 ﻿//Author: Salah Abuzaid
+/**
+ *TODO: Add save functionality & Validation
+ *TODO: Setup controller
+ *TODO: Add edit & add functionality
+ */
 /// <reference path="../Scripts/typings/jquery/jquery.d.ts"/>
 /// <reference path="../Scripts/typings/underscore/underscore.d.ts"/>
 /// <reference path="../Scripts/typings/backbone/backbone.d.ts"/>
@@ -6,12 +11,12 @@
 
 class MarionetteApp extends Marionette.Application {
     navbarRegion: Marionette.Region;
-    testUserResultRegion: Marionette.Region; 
+    userResultRegion: Marionette.Region; 
     constructor() {
         super();
         this.on("initialize:after", this.initializeAfter);
         this.addRegions({ navbarRegion: "#navbarRegion" });
-        this.addRegions({ testUserResultRegion: "#testUserResultRegion" }); // new region
+        this.addRegions({ userResultRegion: "#userResultRegion" }); // new region
     }
     initializeAfter() {
         var navBarButtonCollection: NavBarButtonCollection = new NavBarButtonCollection(
@@ -25,13 +30,13 @@ class MarionetteApp extends Marionette.Application {
         this.navbarRegion.show(navBarView);
 
 
-        var testUserResultCollection = new TestUserCollection();
-        testUserResultCollection.fetch();
-        var testUserResultCollectionView = new TestUserResultsView({ collection: testUserResultCollection });
-        testUserResultCollectionView.on("itemview:btnEdit:clicked", this.editButtonClicked);
-        testUserResultCollectionView.on("itemview:btnSave:clicked", this.saveButtonClicked);
+        var userResultCollection = new UserCollection();
+        userResultCollection.fetch();
+        var userResultCollectionView = new UserResultsView({ collection: userResultCollection });
+        userResultCollectionView.on("itemview:btnEdit:clicked", this.editButtonClicked);
+        userResultCollectionView.on("itemview:btnSave:clicked", this.saveButtonClicked);
 
-        this.testUserResultRegion.show(testUserResultCollectionView);
+        this.userResultRegion.show(userResultCollectionView);
         
         
     }
@@ -40,12 +45,12 @@ class MarionetteApp extends Marionette.Application {
     }
     editButtonClicked(itemView: Marionette.ItemView) {
         console.log('break here');
-        itemView.options.template = "#editTestUserResultsItemViewTemplate";
+        itemView.options.template = "#editUserResultsItemViewTemplate";
         itemView.render();
     }
     saveButtonClicked(itemView: Marionette.ItemView) {
         console.log('break here');
-        itemView.options.template = "#testUserResultsItemViewTemplate";
+        itemView.options.template = "#userResultsItemViewTemplate";
         itemView.render();
     }
 }

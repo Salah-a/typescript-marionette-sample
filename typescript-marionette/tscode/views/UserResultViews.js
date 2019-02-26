@@ -13,13 +13,13 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var TestUserResultItemView = (function (_super) {
-    __extends(TestUserResultItemView, _super);
-    function TestUserResultItemView(options) {
+var UserResultItemView = (function (_super) {
+    __extends(UserResultItemView, _super);
+    function UserResultItemView(options) {
         var _this = this;
         if (!options)
             options = {};
-        options.template = "#testUserResultsItemViewTemplate";
+        options.template = "#userResultsItemViewTemplate";
         options.tagName = "tr";
         options.events = {
             "click .btnEdit": "editButtonClicked",
@@ -28,28 +28,28 @@ var TestUserResultItemView = (function (_super) {
         _this = _super.call(this, options) || this;
         return _this;
     }
-    TestUserResultItemView.prototype.editButtonClicked = function () {
+    UserResultItemView.prototype.editButtonClicked = function () {
         this.trigger("btnEdit:clicked", this.model);
     };
-    TestUserResultItemView.prototype.saveButtonClicked = function () {
+    UserResultItemView.prototype.saveButtonClicked = function () {
         this.trigger("btnSave:clicked", this.model);
     };
-    return TestUserResultItemView;
+    return UserResultItemView;
 }(Marionette.ItemView));
-var TestUserResultsView = (function (_super) {
-    __extends(TestUserResultsView, _super);
-    function TestUserResultsView(options) {
+var UserResultsView = (function (_super) {
+    __extends(UserResultsView, _super);
+    function UserResultsView(options) {
         var _this = this;
         if (!options)
             options = {};
-        options.template = "#testUserResultsCollectionViewTemplate";
+        options.template = "#userResultsCollectionViewTemplate";
         options.tagName = "table";
         options.className = "table table-hover";
         options.itemViewContainer = "tbody";
         _this = _super.call(this, options) || this;
-        _this.itemView = TestUserResultItemView;
+        _this.itemView = UserResultItemView;
         return _this;
     }
-    return TestUserResultsView;
+    return UserResultsView;
 }(Marionette.CompositeView));
 //# sourceMappingURL=UserResultViews.js.map

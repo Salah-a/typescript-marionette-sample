@@ -4,11 +4,11 @@
 /// <reference path="../../Scripts/typings/backbone/backbone.d.ts"/>
 /// <reference path="../../Scripts/typings/marionette/marionette.d.ts"/> 
 
-class TestUserResultItemView extends Marionette.ItemView {
+class UserResultItemView extends Marionette.ItemView {
     constructor(options?: any) {
         if (!options)
             options = {};
-        options.template = "#testUserResultsItemViewTemplate";
+        options.template = "#userResultsItemViewTemplate";
         options.tagName = "tr";
         options.events = {
             "click .btnEdit": "editButtonClicked",
@@ -25,16 +25,16 @@ class TestUserResultItemView extends Marionette.ItemView {
     }
 }
 
-class TestUserResultsView extends Marionette.CompositeView {
+class UserResultsView extends Marionette.CompositeView {
     constructor(options?: any) {
         if (!options)
             options = {};
-        options.template = "#testUserResultsCollectionViewTemplate";
+        options.template = "#userResultsCollectionViewTemplate";
         options.tagName = "table";
         options.className = "table table-hover"; 
         options.itemViewContainer = "tbody"; 
         super(options);
-        this.itemView = TestUserResultItemView; 
+        this.itemView = UserResultItemView; 
     }
 }
 

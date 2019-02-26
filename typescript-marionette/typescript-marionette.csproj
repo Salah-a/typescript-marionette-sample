@@ -160,6 +160,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Properties\PublishProfiles\Salah-Abuzaid-typescript-marionette-sample - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\SalahAbuzaid - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\SalahAbuzaid - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -167,7 +170,6 @@
     <Content Include="Scripts\json2.min.js" />
     <Content Include="Scripts\underscore.js" />
     <Content Include="Scripts\underscore.min.js" />
-    <Content Include="tscode\test\SpecRunner.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -200,7 +202,6 @@
     <TypeScriptCompile Include="tscode\models\NavBarButtonCollection.ts" />
     <TypeScriptCompile Include="tscode\models\NavBarButtonModel.ts" />
     <TypeScriptCompile Include="tscode\models\UserResultModels.ts" />
-    <TypeScriptCompile Include="tscode\test\models\UserResultCollectionTests.ts" />
     <TypeScriptCompile Include="tscode\views\NavBarCollectionView.ts" />
     <TypeScriptCompile Include="tscode\views\NavBarItemView.ts" />
     <TypeScriptCompile Include="tscode\views\UserResultViews.ts" />
